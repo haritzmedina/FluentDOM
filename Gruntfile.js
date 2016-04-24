@@ -16,18 +16,22 @@ module.exports = function(grunt) {
             // Your project's source files
             src : 'src/*.js',
             // Your Jasmine spec files
-            specs : 'specs/*spec.js',
+            specs : 'test/*spec.js',
             // Your spec helper files
-            helpers : 'specs/helpers/*.js'
+            //helpers : 'test/helpers/*.js',
+            timeout : 10000,
+            junit : {
+                output : 'junit/'
+            },
+            phantomjs : {
+                'ignore-ssl-errors' : true
+            }
         }
 
     });
 
     // Load the plugin that provides the "uglify" task.
     grunt.loadNpmTasks('grunt-contrib-uglify');
-
-    // Register tasks.
-    grunt.loadNpmTasks('grunt-jasmine-runner');
 
     // Default task(s).
     grunt.registerTask('default', ['uglify', 'jasmine']);

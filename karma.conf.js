@@ -15,7 +15,8 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
         files: [
-            'build/*.js , tests/*.js'
+            'build/*.js',
+            'test/*.js'
         ],
 
 
@@ -28,7 +29,6 @@ module.exports = function(config) {
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
         },
-
 
         // test results reporter to use
         // possible values: 'dots', 'progress'
@@ -55,7 +55,7 @@ module.exports = function(config) {
 
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-        browsers: ['Chrome'],
+        browsers: ['Firefox', 'Chrome'],
 
 
         // Continuous Integration mode

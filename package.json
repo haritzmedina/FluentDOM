@@ -7,6 +7,7 @@
     "grunt-contrib-jshint": "1.0.0",
     "grunt-contrib-nodeunit": "1.0.0",
     "grunt-contrib-uglify": "1.0.1",
+    "grunt-jasmine-runner": "^0.6.0",
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.22",
     "karma-chrome-launcher": "^0.2.3",
