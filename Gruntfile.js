@@ -4,7 +4,7 @@ module.exports = function(grunt) {
     grunt.initConfig({
         concat: {
             dist: {
-                src: 'src/*.js',
+                src: ['src/FDOMElem*.js', 'src/FDOMBuilder.js'],
                 dest: 'build/<%= pkg.name %>.js'
             }
         },
