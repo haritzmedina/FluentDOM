@@ -4,8 +4,16 @@ module.exports = function(grunt) {
     grunt.initConfig({
         concat: {
             dist: {
-                src: ['src/FDOMElem*.js', 'src/FDOMBuilder.js'],
+                src: ['src/FDOMElements.js', 'src/FDOMBuilder.js'],
                 dest: 'build/<%= pkg.name %>.js'
+            }
+        },
+        jsdoc : {
+            dist : {
+                src: ['src/*.js', 'test/*.js'],
+                options: {
+                    destination: 'doc'
+                }
             }
         },
         pkg: grunt.file.readJSON('package.json'),
@@ -14,20 +22,24 @@ module.exports = function(grunt) {
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
             build: {
-                src: 'src/*.js',
+                src: ['src/FDOMElements.js', 'src/FDOMBuilder.js'],
                 dest: 'build/<%= pkg.name %>.min.js'
             }
         }
+
 
     });
 
     // Load the plugin that provides the "concat" task.
     grunt.loadNpmTasks('grunt-contrib-concat');
 
+    // Load the plugin that provides the "jsdoc" task.
+    grunt.loadNpmTasks('grunt-jsdoc');
+
     // Load the plugin that provides the "uglify" task.
     grunt.loadNpmTasks('grunt-contrib-uglify');
 
     // Default task(s).
-    grunt.registerTask('default', ['concat', 'uglify']);
+    grunt.registerTask('default', ['concat', 'jsdoc', 'uglify']);
 
 };

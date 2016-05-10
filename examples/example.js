@@ -37,6 +37,7 @@
                     .target("_blank")
                     .child("img")
                         .src("https://cdn0.iconfinder.com/data/icons/social-media-set-3/60/bitbucket-128.png")
+                        .css("width", "200px")
                     .endChild()
                 .endChild()
                 .child("div")
