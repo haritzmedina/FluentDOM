@@ -16,6 +16,12 @@ module.exports = function(grunt) {
                 }
             }
         },
+        karma: {
+            unit: {
+                configFile: 'karma.conf.js',
+                singleRun: true
+            }
+        },
         pkg: grunt.file.readJSON('package.json'),
         uglify: {
             options: {
@@ -36,10 +42,13 @@ module.exports = function(grunt) {
     // Load the plugin that provides the "jsdoc" task.
     grunt.loadNpmTasks('grunt-jsdoc');
 
+    // Load the plugin that provides the "karma" task.
+    grunt.loadNpmTasks('grunt-karma');
+
     // Load the plugin that provides the "uglify" task.
     grunt.loadNpmTasks('grunt-contrib-uglify');
 
     // Default task(s).
-    grunt.registerTask('default', ['concat', 'jsdoc', 'uglify']);
+    grunt.registerTask('default', ['concat', 'jsdoc', 'karma', 'uglify']);
 
 };

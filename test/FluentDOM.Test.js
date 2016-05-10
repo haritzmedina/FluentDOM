@@ -25,8 +25,7 @@ describe("FDOMBuilder test", function(){
         expect(name).toBe("IMG");
     });
 
-    it("Check all childs are closed", function(){
-        builder._currentElement = builder._rootElement;
-
+    it("Check all childs are ended", function(){
+        expect(builder._currentElement).toBe(builder._rootElement);
     });
 });
