@@ -21,10 +21,10 @@ var FDOMA = function(){
  * @type {string[]}
  */
 FDOMA.prototype.properties = [
-    "download",
-    "href",
-    "media",
-    "target"
+	'download',
+	'href',
+	'media',
+	'target'
 ];
 
 /**
@@ -42,9 +42,9 @@ var FDOMDiv = function(){
  * @type {string[]}
  */
 FDOMDiv.prototype.properties = [
-    "alt",
-    "longdesc",
-    "src"
+	'alt',
+	'longdesc',
+	'src'
 ];
 
 /**
@@ -62,42 +62,12 @@ var FDOMForm = function(){
  * @type {string[]}
  */
 FDOMForm.prototype.properties = [
-    "action",
-    "autocomplete",
-    "method",
-    "name",
-    "novalidate",
-    "target"
-];
-
-/**
- * Form element of DOM-API
- * @module com.haritzmedina.fluentdom.elements
- * @class FDOMInput
- */
-var FDOMInput = function(){
-
-};
-
-/**
- * Input Tag element properties
- * @see http://www.w3schools.com/tags/tag_input.asp
- * @type {string[]}
- */
-FDOMInput.prototype.properties = [
-    "autocomplete",
-    "autofocus",
-    "checked",
-    "dirname",
-    "disabled",
-    "form",
-    "formnovalidate",
-    "name",
-    "placeholder",
-    "required",
-    "readonly",
-    "type",
-    "value"
+	'action',
+	'autocomplete',
+	'method',
+	'name',
+	'novalidate',
+	'target'
 ];
 
 /**
@@ -115,10 +85,38 @@ var FDOMImg = function(){
  * @type {string[]}
  */
 FDOMImg.prototype.properties = [
-    "src"
+	'src'
 ];
 
+/**
+ * Form element of DOM-API
+ * @module com.haritzmedina.fluentdom.elements
+ * @class FDOMInput
+ */
+var FDOMInput = function(){
 
+};
+
+/**
+ * Input Tag element properties
+ * @see http://www.w3schools.com/tags/tag_input.asp
+ * @type {string[]}
+ */
+FDOMInput.prototype.properties = [
+	'autocomplete',
+	'autofocus',
+	'checked',
+	'dirname',
+	'disabled',
+	'form',
+	'formnovalidate',
+	'name',
+	'placeholder',
+	'required',
+	'readonly',
+	'type',
+	'value'
+];
 /**
  * @fileoverview FDOMBuilder
  * @author Haritz medina
@@ -133,13 +131,13 @@ FDOMImg.prototype.properties = [
  */
 
 var FDOMBuilder = function(selector){
-    if(selector){
-        this._rootElement = document.querySelector(selector);
-    }
-    else{
-        this._rootElement = document.body;
-    }
-    this._currentElement = this._rootElement;
+	if(selector){
+		this._rootElement = document.querySelector(selector);
+	}
+	else{
+		this._rootElement = document.body;
+	}
+	this._currentElement = this._rootElement;
 };
 
 /**
@@ -149,28 +147,28 @@ var FDOMBuilder = function(selector){
  * @returns {FDOMBuilder}
  */
 FDOMBuilder.prototype.child = function(elem){
-    // Check element exists
-    if(FDOMBuilder.elements[elem]){
-        // Unset previous current element properties
-        var currentElementType = FDOMBuilder.elements[this._currentElement.nodeName.toLowerCase()];
-        if(currentElementType){
-            var currentElementBuilder = new FDOMBuilder.elements[this._currentElement.nodeName.toLowerCase()]();
-            this.unsetProperties(currentElementBuilder);
-        }
-        // Retrieve new DOM element
-        var domBuilderElement = new FDOMBuilder.elements[elem]();
-        // Create element and anchor it to current element
-        var child = document.createElement(elem);
-        this._currentElement.appendChild(child);
-        this._currentElement = child;
-        // Add functionality to the current fluent API for the element working on
-        this.setProperties(domBuilderElement);
-    }
-    else{
-        throw "Element is not listed";
-    }
-    // Return builder
-    return this;
+	// Check element exists
+	if(FDOMBuilder.elements[elem]){
+		// Unset previous current element properties
+		var currentElementType = FDOMBuilder.elements[this._currentElement.nodeName.toLowerCase()];
+		if(currentElementType){
+			var currentElementBuilder = new FDOMBuilder.elements[this._currentElement.nodeName.toLowerCase()]();
+			this.unsetProperties(currentElementBuilder);
+		}
+		// Retrieve new DOM element
+		var domBuilderElement = new FDOMBuilder.elements[elem]();
+		// Create element and anchor it to current element
+		var child = document.createElement(elem);
+		this._currentElement.appendChild(child);
+		this._currentElement = child;
+		// Add functionality to the current fluent API for the element working on
+		this.setProperties(domBuilderElement);
+	}
+	else{
+		throw 'Element is not listed';
+	}
+	// Return builder
+	return this;
 };
 
 /**
@@ -179,25 +177,25 @@ FDOMBuilder.prototype.child = function(elem){
  * @returns {FDOMBuilder}
  */
 FDOMBuilder.prototype.endChild = function(){
-    if(this._currentElement == this._rootElement){
-        throw "Cannot end child, your current element is root";
-    }
-    // Unset previous current element properties
-    var currentElementType = FDOMBuilder.elements[this._currentElement.nodeName.toLowerCase()];
-    if(currentElementType){
-        var currentElementBuilder = new FDOMBuilder.elements[this._currentElement.nodeName.toLowerCase()]();
-        this.unsetProperties(currentElementBuilder);
-    }
-    // Set new current element
-    this._currentElement = this._currentElement.parentElement;
-    // Set new current element properties
-    var parentElementType = FDOMBuilder.elements[this._currentElement];
-    if(parentElementType){
-        var newElementBuilder = new parentElementType();
-        this.setProperties(newElementBuilder);
-    }
-    // Return builder
-    return this;
+	if(this._currentElement == this._rootElement){
+		throw 'Cannot end child, your current element is root';
+	}
+	// Unset previous current element properties
+	var currentElementType = FDOMBuilder.elements[this._currentElement.nodeName.toLowerCase()];
+	if(currentElementType){
+		var currentElementBuilder = new FDOMBuilder.elements[this._currentElement.nodeName.toLowerCase()]();
+		this.unsetProperties(currentElementBuilder);
+	}
+	// Set new current element
+	this._currentElement = this._currentElement.parentElement;
+	// Set new current element properties
+	var parentElementType = FDOMBuilder.elements[this._currentElement];
+	if(parentElementType){
+		var newElementBuilder = new parentElementType();
+		this.setProperties(newElementBuilder);
+	}
+	// Return builder
+	return this;
 };
 
 /**
@@ -205,13 +203,13 @@ FDOMBuilder.prototype.endChild = function(){
  * @param elementType
  */
 FDOMBuilder.prototype.setProperties = function(elementType){
-    var properties = elementType.properties;
-    for(var i in properties){
-        if(properties.hasOwnProperty(i)){
-            var property = properties[i];
-            this.setProperty(property);
-        }
-    }
+	var properties = elementType.properties;
+	for(var i in properties){
+		if(properties.hasOwnProperty(i)){
+			var property = properties[i];
+			this.setProperty(property);
+		}
+	}
 };
 
 /**
@@ -219,13 +217,13 @@ FDOMBuilder.prototype.setProperties = function(elementType){
  * @param property
  */
 FDOMBuilder.prototype.setProperty = function(property){
-    this[property] = function(value){
-        if(value){
-            this._currentElement[property] = value;
-        }
-        // Return builder after value asignament
-        return this;
-    };
+	this[property] = function(value){
+		if(value){
+			this._currentElement[property] = value;
+		}
+		// Return builder after value asignament
+		return this;
+	};
 };
 
 /**
@@ -233,13 +231,13 @@ FDOMBuilder.prototype.setProperty = function(property){
  * @param elementType
  */
 FDOMBuilder.prototype.unsetProperties = function(elementType){
-    var properties = elementType.properties;
-    for(var i in properties){
-        if(properties.hasOwnProperty(i)){
-            var property = properties[i];
-            delete this[property];
-        }
-    }
+	var properties = elementType.properties;
+	for(var i in properties){
+		if(properties.hasOwnProperty(i)){
+			var property = properties[i];
+			delete this[property];
+		}
+	}
 };
 
 /* Common methods for any DOM element */
@@ -250,11 +248,11 @@ FDOMBuilder.prototype.unsetProperties = function(elementType){
  * @returns {FDOMBuilder}
  */
 FDOMBuilder.prototype.id = function(value){
-    if(value){
-        this._currentElement.id = value;
-    }
-    // Return builder after value asignament
-    return this;
+	if(value){
+		this._currentElement.id = value;
+	}
+	// Return builder after value asignament
+	return this;
 };
 
 /**
@@ -263,10 +261,10 @@ FDOMBuilder.prototype.id = function(value){
  * @returns {FDOMBuilder}
  */
 FDOMBuilder.prototype.addClass = function(value){
-    if(value){
-        this._currentElement.className += value;
-    }
-    return this;
+	if(value){
+		this._currentElement.className += value;
+	}
+	return this;
 };
 
 /**
@@ -275,10 +273,10 @@ FDOMBuilder.prototype.addClass = function(value){
  * @returns {FDOMBuilder}
  */
 FDOMBuilder.prototype.removeClass = function(value){
-    if(value){
-        this._currentElement.className = this._currentElement.className.replace(value, "");
-    }
-    return this;
+	if(value){
+		this._currentElement.className = this._currentElement.className.replace(value, '');
+	}
+	return this;
 };
 
 /**
@@ -287,8 +285,8 @@ FDOMBuilder.prototype.removeClass = function(value){
  * @returns {FDOMBuilder}
  */
 FDOMBuilder.prototype.title = function(value){
-    this._currentElement.title = value;
-    return this;
+	this._currentElement.title = value;
+	return this;
 };
 
 /**
@@ -298,8 +296,8 @@ FDOMBuilder.prototype.title = function(value){
  * @returns {FDOMBuilder}
  */
 FDOMBuilder.prototype.css = function(property, value){
-    this._currentElement.style[property] = value;
-    return this;
+	this._currentElement.style[property] = value;
+	return this;
 };
 
 /**
@@ -308,8 +306,8 @@ FDOMBuilder.prototype.css = function(property, value){
  * @returns {FDOMBuilder}
  */
 FDOMBuilder.prototype.text = function(value){
-    this._currentElement.innerText = value;
-    return this;
+	this._currentElement.innerText = value;
+	return this;
 };
 
 /**
@@ -317,9 +315,9 @@ FDOMBuilder.prototype.text = function(value){
  * @type {{img: FDOMImg, a: FDOMA, div: FDOMDiv, input: FDOMInput, form: FDOMForm}}
  */
 FDOMBuilder.elements = {
-    "img": FDOMImg,
-    "a": FDOMA,
-    "div": FDOMDiv,
-    "input": FDOMInput,
-    "form": FDOMForm
+	'img': FDOMImg,
+	'a': FDOMA,
+	'div': FDOMDiv,
+	'input': FDOMInput,
+	'form': FDOMForm
 };

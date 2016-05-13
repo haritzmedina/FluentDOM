@@ -15,7 +15,11 @@
     "karma-firefox-launcher": "^1.0.0",
     "karma-jasmine": "^0.3.8",
     "qunitjs": "^1.14.0",
-    "grunt-jsdoc": "^2.0.0"
+    "grunt-jsdoc": "^2.0.0",
+    "grunt-eslint": "^18.1.0"
   },
-  "license": "GPL-2.0"
+  "license": "GPL-2.0",
+  "dependencies": {
+    "load-grunt-tasks": "^3.5.0"
+  }
 }

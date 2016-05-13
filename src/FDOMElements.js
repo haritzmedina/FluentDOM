@@ -21,10 +21,10 @@ var FDOMA = function(){
  * @type {string[]}
  */
 FDOMA.prototype.properties = [
-    "download",
-    "href",
-    "media",
-    "target"
+	'download',
+	'href',
+	'media',
+	'target'
 ];
 
 /**
@@ -42,9 +42,9 @@ var FDOMDiv = function(){
  * @type {string[]}
  */
 FDOMDiv.prototype.properties = [
-    "alt",
-    "longdesc",
-    "src"
+	'alt',
+	'longdesc',
+	'src'
 ];
 
 /**
@@ -62,42 +62,12 @@ var FDOMForm = function(){
  * @type {string[]}
  */
 FDOMForm.prototype.properties = [
-    "action",
-    "autocomplete",
-    "method",
-    "name",
-    "novalidate",
-    "target"
-];
-
-/**
- * Form element of DOM-API
- * @module com.haritzmedina.fluentdom.elements
- * @class FDOMInput
- */
-var FDOMInput = function(){
-
-};
-
-/**
- * Input Tag element properties
- * @see http://www.w3schools.com/tags/tag_input.asp
- * @type {string[]}
- */
-FDOMInput.prototype.properties = [
-    "autocomplete",
-    "autofocus",
-    "checked",
-    "dirname",
-    "disabled",
-    "form",
-    "formnovalidate",
-    "name",
-    "placeholder",
-    "required",
-    "readonly",
-    "type",
-    "value"
+	'action',
+	'autocomplete',
+	'method',
+	'name',
+	'novalidate',
+	'target'
 ];
 
 /**
@@ -115,6 +85,35 @@ var FDOMImg = function(){
  * @type {string[]}
  */
 FDOMImg.prototype.properties = [
-    "src"
+	'src'
 ];
 
+/**
+ * Form element of DOM-API
+ * @module com.haritzmedina.fluentdom.elements
+ * @class FDOMInput
+ */
+var FDOMInput = function(){
+
+};
+
+/**
+ * Input Tag element properties
+ * @see http://www.w3schools.com/tags/tag_input.asp
+ * @type {string[]}
+ */
+FDOMInput.prototype.properties = [
+	'autocomplete',
+	'autofocus',
+	'checked',
+	'dirname',
+	'disabled',
+	'form',
+	'formnovalidate',
+	'name',
+	'placeholder',
+	'required',
+	'readonly',
+	'type',
+	'value'
+];
