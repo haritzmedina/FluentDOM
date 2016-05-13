@@ -1,7 +1,7 @@
 /**
  * @fileoverview FDOMBuilder
  * @author Haritz medina
- * @license GPLv2
+ * @license GPLv3
  *
  * @module com.haritzmedina.fluentdom
  */
