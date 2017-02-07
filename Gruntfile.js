@@ -35,8 +35,6 @@ module.exports = function(grunt) {
 				dest: 'build/<%= pkg.name %>.min.js'
 			}
 		}
-
-
 	});
 
 	// Load the plugin that provides the "concat" task.
