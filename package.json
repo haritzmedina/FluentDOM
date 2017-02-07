@@ -2,6 +2,7 @@
   "name": "FluentDOM",
   "author": "Haritz Medina",
   "dependencies": {
+    "express": "^4.14.1",
     "load-grunt-tasks": "^3.5.0"
   },
   "description": "A Fluent API to build a DOM dynamically",
@@ -21,11 +22,11 @@
     "grunt-jsdoc": "^2.0.0",
     "grunt-eslint": "^18.1.0"
   },
+  "main": "app.js",
   "license": "GPL-3.0",
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/haritzmedina/FluentDOM.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/haritzmedina/FluentDOM.git"
   },
   "version": "0.1.0"
-
 }
