@@ -6,7 +6,7 @@ import FDOMBuilder from 'src/FDOMBuilder';*/
 
 describe('FDOMBuilder test', function(){
 
-	var builder;
+	let builder;
 
 	beforeAll(function(){
 		builder = new FDOMBuilder();
@@ -25,9 +25,9 @@ describe('FDOMBuilder test', function(){
 	});
 
 	it('A link to github is created with an img as a child', function() {
-		var link = document.getElementById('github');
-		var img = link.childNodes[0];
-		var name = img.tagName;
+		let link = document.getElementById('github');
+		let img = link.childNodes[0];
+		let name = img.tagName;
 		expect(name).toBe('IMG');
 	});
 
