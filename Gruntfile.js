@@ -8,6 +8,15 @@ module.exports = function(grunt) {
 				dest: 'build/<%= pkg.name %>.js'
 			}
 		},
+		coveralls: {
+			options: {
+				debug: true,
+				coverageDir: 'coverage/',
+				dryRun: true,
+				force: true,
+				recursive: true
+			}
+		},
 		eslint: {
 			target: ['src/*.js', 'test/*.js']
 		},
@@ -52,7 +61,10 @@ module.exports = function(grunt) {
 	// Load the plugin that provides the "uglify" task.
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 
+	// Karma coveralls
+	grunt.loadNpmTasks('grunt-karma-coveralls');
+
 	// Default task(s).
-	grunt.registerTask('default', ['concat', 'karma', 'uglify', 'eslint', 'jsdoc']);
+	grunt.registerTask('default', ['concat', 'karma', 'uglify', 'eslint', 'coveralls']);
 
 };

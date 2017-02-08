@@ -16,6 +16,7 @@
     "grunt-eslint": "^18.1.0",
     "grunt-jsdoc": "^2.0.0",
     "grunt-karma": "^1.0.0",
+    "grunt-karma-coveralls": "^2.5.4",
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.22",
     "karma-chrome-launcher": "^0.2.3",
