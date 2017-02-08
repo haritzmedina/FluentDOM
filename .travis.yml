@@ -9,10 +9,12 @@ before_install:
 before_script:
 - npm install
 - node_modules/grunt/bin/grunt
-notifications:
-  email: false
+after_success:
+  - coveralls
 deploy:
   provider: heroku
   app: fluentdom
   api_key:
     secure: K15ZVBJVskd2u3zcIs14Snbal3z8B42gccDvdiEhrmC/HSZC5Zfj4nB0SPVkpEDVIn62gsWTcMJ7H6jUHYTBK7OXZDcwxenatdIqj4UzGaGcbLl9BTHp8EtzE0DkxdIlZpJqIu18Po2Ijj+BYuh6/qfZ27lYUaZCBN9xF1r6QbuxccS9YeiAMBRMhZ0NhY5gSPu50ttidxPUfBVEr1pEc/MVd0q7QXUM87rgG6xmEMZqTixD8etqmRSsuCvroJv6O4rrT3w9QtwlOz4OyjqagUiDfkVt7X0ihsEhA5PXtClLeyFumR3zkF5ifMLwzssl4ZveYm57/9nZw5kUlYcXSKrYVcdA5x8KYIaUVOfqTOhk34S3j9Li0HFRkmG1Yq4PaLphfPdBR1Jy/lm9C53aDIcGyGNEXZwgsC23xEeqXCd7runqiucCru+BK3IlJVsQMQDHCNWMUcwZ6D6K0+gg9HPQgw2sD4hgpYD4AKKi54DgRaggsPyXOwbQCAd2TMTY6w9KDfKu7VFLfCd5WgXAg/3zDOnxlhzyvq5V8xMrLkEIUKPK3vLITwCpM7776v7pzGBWlQALiZD8LvHjRsT8ti61aq5FuiTiyhsdp7l/xXA+Y1lM9HtjvA0Tl2Bdfl6qGC4Aasx+Dgj78decqPiReavqSRwPBLLNCVynnVnyEJc=
+notifications:
+  email: false
