@@ -7,6 +7,7 @@
   },
   "description": "A Fluent API to build a DOM dynamically",
   "devDependencies": {
+    "coveralls": "^2.11.16",
     "grunt": "^1.0.1",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-jshint": "^1.0.0",
