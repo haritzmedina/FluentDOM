@@ -8,6 +8,22 @@ module.exports = function(grunt) {
 				dest: 'build/<%= pkg.name %>.js'
 			}
 		},
+		coveralls: {
+			options: {
+				debug: true,
+				coverageDir: 'coverage/',
+				dryRun: true,
+				force: true,
+				recursive: true
+			},
+			your_target: {
+				// LCOV coverage file (can be string, glob or array)
+				src: 'coverage/**/*.info',
+				options: {
+					// Any options for just this target
+				}
+			}
+		},
 		eslint: {
 			target: ['src/*.js', 'test/*.js']
 		},
@@ -35,8 +51,6 @@ module.exports = function(grunt) {
 				dest: 'build/<%= pkg.name %>.min.js'
 			}
 		}
-
-
 	});
 
 	// Load the plugin that provides the "concat" task.
@@ -54,7 +68,14 @@ module.exports = function(grunt) {
 	// Load the plugin that provides the "uglify" task.
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 
+	// Karma coveralls
+	//grunt.loadNpmTasks('grunt-karma-coveralls');
+
+	// Coveralls
+	grunt.loadNpmTasks('grunt-coveralls');
+
+
 	// Default task(s).
-	grunt.registerTask('default', ['concat', 'karma', 'uglify', 'eslint', 'jsdoc']);
+	grunt.registerTask('default', ['concat', 'karma', 'uglify', 'eslint', 'coveralls']);
 
 };
